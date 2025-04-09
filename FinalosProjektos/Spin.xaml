@@ -1,0 +1,420 @@
+﻿<UserControl x:Class="FinalosProjektos.Spin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FinalosProjektos"
+             mc:Ignorable="d" 
+             d:DesignHeight="603.232" d:DesignWidth="1250">
+    <UserControl.Resources>
+        <ImageBrush x:Key="SpinColorsStyle" ImageSource="/SpinButtonsColor.png"/>
+        <ImageBrush x:Key="SpinStyle" ImageSource="/SpinButtonsWays.png" />
+        <ImageBrush x:Key="SpinStyleClick" ImageSource="/buttonClickSpinClicked.png"   />
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ColorButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <!--<Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>-->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource SpinStyleClick}"/>
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>-->
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource SpinColorsStyle}"/>
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>-->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual1">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background1" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border1" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background1" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background1" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border1" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground1" Color="#FF838383"/>
+        <Style x:Key="SpinButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <!--<Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border1}"/>-->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <!--<Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border1}"/>-->
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource SpinStyle}"/>
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border1}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground1}"/>-->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual2">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background2" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border2" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background2" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border2" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background2" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border2" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background2" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border2" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground2" Color="#FF838383"/>
+        <Style x:Key="spinClickButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual2}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background2}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border2}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <!--<Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background2}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border2}"/>-->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <!--<Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background2}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border2}"/>-->
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource SpinStyleClick}"/>
+                                <!--<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border2}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground2}"/>-->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Canvas Width="500" Height="500" Grid.Column="3" HorizontalAlignment="Center" x:Name="WheelGrid1" Visibility="Visible">
+            <!--<Path Stroke="#4d4d4d" StrokeThickness="20" Data="M 465,250 A 220,220 0 0 1 245,470 A 220,220 0 0 1 25,250 A 220,220 0 0 1 245,30 A 220,220 0 0 1 465,250 Z" RenderTransformOrigin="0.518,0.522" />-->
+            <Path Stroke="#4d4d4d" StrokeThickness="20" Data="M 25.224026,239.98199 C 30.312379,126.44608 121.45636,35.305872 234.99385,30.223502" RenderTransformOrigin="1.043,1.035" >
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Stroke="#f16a70" StrokeThickness="20" Data="M 254.98675,30.222635 C 368.52948,35.295324 459.68128,126.43356 464.77546,239.97069" RenderTransformOrigin="0.516,1.041">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Stroke="#b1d877" StrokeThickness="20" Data="M 464.77729,259.98812 C 459.70362,373.53744 368.55436,464.6929 255.00759,469.77643" RenderTransformOrigin="0.516,0.521" >
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Stroke="#8cdcda" StrokeThickness="20" Data="M 235.00176,469.77685 C 121.46298,464.69847 30.316313,373.56038 25.224346,260.02514" RenderTransformOrigin="1.04,0.521">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <!--<Path x:Name="white1" Fill="#feffff" StrokeThickness="20" Data="M 254.98049,20.201534 L 249.47104 20.024334 L 244.9959 20 L 240.11764 20.02481 L 234.99961 20.21598 L 235.00761 479.797216 L 239.00162 479.946046 L 244.02386 479.999156 L 249.02614 479.971456 L 253.00261 479.807296 Z" RenderTransformOrigin="0.961,0.52" />
+            <Path x:Name="white2" Fill="#feffff" StrokeThickness="20" Data="M 474.79949,259.97929 L 474.97669 254.46984 L 474.99919 249.9947 L 474.97539 245.11644 L 474.81778 239.99841 L 15.229999 240.01051 L 15.048096 244.99581 L 15.005065 249.02532 L 15.029765 253.00261 L 15.183379 257.0015 Z" RenderTransformOrigin="0.516,0.963" />-->
+            <Label Height="2" Width="30" Background="Black" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Canvas.Left="230" Canvas.Top="14" VerticalAlignment="Center">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+        </Canvas>
+
+        <Canvas Width="500" Height="500" Grid.Column="3" HorizontalAlignment="Center" x:Name="WheelGrid" Visibility="Hidden">
+            <!--<Path Stroke="#4d4d4d" StrokeThickness="20" Data="M 465,250 A 220,220 0 0 1 245,470 A 220,220 0 0 1 25,250 A 220,220 0 0 1 245,30 A 220,220 0 0 1 465,250 Z" RenderTransformOrigin="0.518,0.522" />-->
+            <Path Stroke="#4d4d4d" StrokeThickness="20" Data="m 24.999993,250 c 0,-118.14856 93.134677,-214.544625 209.992277,-219.776428" RenderTransformOrigin="1.041,1" >
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Stroke="#f16a70" StrokeThickness="20" Data="M 254.98819,30.222699 C 371.85495,35.444638 465,131.84486 465,250" RenderTransformOrigin="0.516,1">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Stroke="#f16a70" StrokeThickness="20" Data="m 464.99999,250 c 0,118.14804 -93.13386,214.54377 -209.99074,219.77636" RenderTransformOrigin="0.516,0.521" >
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Stroke="#4d4d4d" StrokeThickness="20" Data="M 234.99998,469.77677 C 118.13876,464.54886 24.999993,368.15116 24.999993,250" RenderTransformOrigin="1.043,0.522">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <!--<Path Fill="#feffff" StrokeThickness="20" Data="M 254.98049,20.201534 L 249.47104 20.024334 L 244.9959 20 L 240.11764 20.02481 L 234.99961 20.21598 L 235.00761 479.797216 L 239.00162 479.946046 L 244.02386 479.999156 L 249.02614 479.971456 L 253.00261 479.807296 Z" RenderTransformOrigin="0.961,0.52" />-->
+            <Label Height="2" Width="30" Background="Black" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Canvas.Left="230" Canvas.Top="14" VerticalAlignment="Center">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+        </Canvas>
+
+        <Canvas Width="500" Height="500" Grid.Column="3" HorizontalAlignment="Center" x:Name="WheelGrid2" Visibility="Hidden">
+            <Path Stroke="#4d4d4d" StrokeThickness="20" Data="M 96.693203,87.501631 C 133.50775,53.883282 181.78679,32.608089 234.98201,30.224033" RenderTransformOrigin="1.034,2.642" />
+            <Path Stroke="#8b6749" StrokeThickness="20" Data="M 25.23405,239.7608 C 27.661083,186.78424 48.824868,138.69505 82.252865,101.96608" RenderTransformOrigin="2.729,1.042" />
+            <Path Stroke="#e17ac1" StrokeThickness="20" Data="m 407.62205,101.82877 c 33.55887,36.81067 54.788,85.0579 57.15646,138.21042" RenderTransformOrigin="0.514,1.055" />
+            <Path Stroke="#f16a70" StrokeThickness="20" Data="m 255.05059,30.225497 c 53.13917,2.38935 101.3708,23.63013 138.16653,57.194303" RenderTransformOrigin="0.614,2.642" />
+            <Path Stroke="#ddb268" StrokeThickness="20" Data="m 393.26924,412.53264 c -36.80241,33.59177 -85.05468,54.85152 -138.21914,57.24189" RenderTransformOrigin="0.614,0.522" />
+            <Path Stroke="#b1d877" StrokeThickness="20" Data="m 464.7743,260.0548 c -2.39203,53.1764 -23.66192,101.43816 -57.26781,138.24309" RenderTransformOrigin="0.517,0.618" />
+            <Path Stroke="#e3e591" StrokeThickness="20" Data="M 82.429164,398.2274 C 48.853353,361.42356 27.607188,313.17684 25.224164,260.02106" RenderTransformOrigin="2.734,0.619" />
+            <Path Stroke="#8cdcda" StrokeThickness="20" Data="M 234.86561,469.77072 C 181.7473,467.36227 133.53707,446.11695 96.757467,412.55703" RenderTransformOrigin="1.035,0.522" />
+            <!--<Path Fill="#feffff" Stroke="#ffffff" StrokeThickness="0.1" Data="M254.98049,20.201534 L249.47104,20.024334 L245.9959,20 L241.11764,20.02481 L236.99961,20.21598 L237.00761,479.797216 L241.00162,479.946046 L246.02386,479.999146 L251.02614,479.946046 L256.00261,479.754216 z" RenderTransformOrigin="0.959,0.522" />
+            <Path Fill="#feffff" Stroke="#ffffff" StrokeThickness="0.1" Data="M474.79949,259.97929 L474.97669,254.469845 L475.00019,249.994705 L474.97539,245.116445 L474.81478,240.977745 L15.226999,241.054845 L15.048096,246.056115 L14.977066,251.056385 L15.028766,256.058655 L15.173386,261.033575 z" RenderTransformOrigin="0.517,0.96" />
+            <Path Fill="#feffff" Stroke="#ffffff" StrokeThickness="0.2" Data="M414.54959,94.564409 L410.77912,90.543341 L407.63133,87.362329 L404.16434,84.929421 L400.41087,83.445898 L75.443518,408.42456 L78.869578,411.0601 L82.38329,413.64872 L85.94073,416.19186 L89.501503,418.69088 z" RenderTransformOrigin="0.592,0.598" />
+            <Path Fill="#feffff" Stroke="#ffffff" StrokeThickness="0.1" Data="M400.48156,419.61894 L404.50241,415.598651 L407.68326,412.451001 L410.11699,409.984181 L412.41329,407.480621 L87.434785,82.502158 L83.02621,85.910522 L79.512527,88.496303 L76.074864,91.044878 L72.513224,93.545481 z" RenderTransformOrigin="0.595,0.597" />-->
+            <Label Height="2" Width="30" Background="Black" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Canvas.Left="230" Canvas.Top="14" VerticalAlignment="Center">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+
+        </Canvas>
+        <Label x:Name="noInput" Content="No color selected" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" Background="Gray" Opacity="0.5" Width="115" Visibility="Hidden"/>
+        <Button Style="{DynamicResource spinClickButton}" x:Name="startSpin" Click="startSpin_Click" Width="100" Height="100" Grid.Row="1" Grid.Column="3" Margin="39,73,39,68" Grid.RowSpan="2" BorderBrush="Transparent" Content="SPIN" FontSize="24" Foreground="White">
+            <Button.Background>
+                <ImageBrush ImageSource="/buttonClickSpin.png" />
+            </Button.Background>
+        </Button>
+        <Button Style="{DynamicResource SpinButton}" x:Name="twoWays" Click="TwoWayClick" Width="50" Height="50" Grid.Row="0" Grid.Column="0" Content="2-Way" BorderBrush="Transparent" Foreground="White">
+            <Button.Background>
+                <ImageBrush ImageSource="/SpinButtonsWays.png"   />
+            </Button.Background>
+        </Button>
+        <Button Style="{DynamicResource SpinButton}" x:Name="fourWays" Click="FourWayClick" Width="50" Height="50" Grid.Row="1" Grid.Column="0" Content="4-Way" BorderBrush="Transparent" Foreground="White">
+            <Button.Background>
+                <ImageBrush ImageSource="/SpinButtonsWays.png" />
+            </Button.Background>
+        </Button>
+        <Button Style="{DynamicResource SpinButton}" x:Name="eightWays" Click="EightWayClick" Width="50" Height="50" Grid.Row="2" Grid.Column="0" Content="8-Way" BorderBrush="Transparent" Foreground="White">
+            <Button.Background>
+                <ImageBrush ImageSource="/SpinButtonsWays.png" />
+            </Button.Background>
+        </Button>
+
+        <Grid Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="6" Grid.RowSpan="2" x:Name="allColors">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="twoInputs" Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Style="{DynamicResource ColorButtonStyle}" Click="barvaClick" Height="50" Width="50" VerticalAlignment="Center" x:Name="cerna" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#4d4d4d" />
+                <Button Style="{DynamicResource ColorButtonStyle}" Click="barvaClick" Height="50" Width="50" VerticalAlignment="Center" x:Name="cervena" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#f16a70"/>
+            </Grid>
+            <Grid x:Name="fourInputs" Grid.Column="1" Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Style="{DynamicResource ColorButtonStyle}"  Click="barvaClick" Height="50" Width="50" VerticalAlignment="Center" x:Name="zelena" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Background="#b1d877" />
+                <Button Style="{DynamicResource ColorButtonStyle}"  Click="barvaClick" Height="50" Width="50" VerticalAlignment="Center" x:Name="modra" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Background="#8cdcda"/>
+            </Grid>
+            <Grid x:Name="eightInputs" Grid.Row="1" Grid.RowSpan="3" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Style="{DynamicResource ColorButtonStyle}"  Click="barvaClick" Height="50" Width="50" x:Name="hneda" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" Background="#8b6749" />
+                <Button Style="{DynamicResource ColorButtonStyle}"  Click="barvaClick" Height="50" Width="50" x:Name="fialova" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" Background="#e17ac1" />
+                <Button Style="{DynamicResource ColorButtonStyle}"  Click="barvaClick" Height="50" Width="50" x:Name="oranzova" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Center" Background="#ddb268" />
+                <Button Style="{DynamicResource ColorButtonStyle}"  Click="barvaClick" Height="50" Width="50" x:Name="zluta" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" VerticalAlignment="Center" Background="#e3e591"/>
+            </Grid>
+        </Grid>
+        <Label x:Name="multipleNum" Content="4X" FontSize="24" VerticalAlignment="top" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="3"/>
+        <TextBlock Text="Bet" FontSize="16" Grid.ColumnSpan="2" Width="100" Height="20" Grid.Column="5" Grid.Row="2" TextAlignment="Center" Margin="128,5,129,96" FontWeight="Bold" Foreground="White"/>
+        <TextBox x:Name="betAmount" Height="40" Grid.Column="5" Grid.ColumnSpan="6" Grid.Row="2" Margin="80 30 80 30" VerticalContentAlignment="Center" FontSize="16" PreviewTextInput="NumberInput" Text="1,00" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Padding="15 0 0 0" Foreground="White" BorderBrush="Transparent">
+            <TextBox.Background>
+                <ImageBrush ImageSource="/ClickButtonUpgradeBlue.png"/>
+            </TextBox.Background>
+        </TextBox>
+    </Grid>
+</UserControl>

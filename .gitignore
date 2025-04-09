@@ -1,0 +1,66 @@
+# Visual Studio gitignore
+
+## Ignore build outputs
+[Bb]in/
+[Oo]bj/
+
+## Ignore user-specific files
+*.user
+*.suo
+*.userprefs
+*.userosscache
+
+## Ignore IDE files
+.vs/
+*.vsp
+*.vssscc
+*.sln.iml
+
+## Ignore WPF temp files
+*.psess
+*.vshost.*
+*.pdb
+*.cache
+
+## Ignore NuGet packages
+packages/
+*.nupkg
+NuGet.exe
+
+## Ignore temp files
+*.tmp
+*.temp
+*.log
+*.tlog
+
+## Ignore output folders
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+## Ignore Resharper files
+_ReSharper.*
+*.ReSharper
+
+## Ignore publish output
+publish/
+
+## Ignore local settings
+*.local
+appsettings.json
+
+## Ignore WPF compiled files
+*.g.cs
+*.g.i.cs
+*.g.resources
+
+## Ignore package references
+project.lock.json
+
+## Ignore auto-generated files
+*.Generated.cs
+
+## Ignore test results
+[Tt]est[Rr]esult*
+*.trx

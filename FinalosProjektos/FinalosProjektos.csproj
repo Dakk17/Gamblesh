@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AutoButtonUpgradeBlue.png" />
+    <None Remove="BlueButtonTest.png" />
+    <None Remove="ButtonBlue.png" />
+    <None Remove="buttonClickSpin.png" />
+    <None Remove="buttonClickSpinClicked.png" />
+    <None Remove="buttonTest.png" />
+    <None Remove="ClickButtonResized.gif" />
+    <None Remove="ClickButtonResized.png" />
+    <None Remove="ClickButtonUpgradeBlue.png" />
+    <None Remove="EndGame.png" />
+    <None Remove="ExitButton.png" />
+    <None Remove="Fonts\Best.ttf" />
+    <None Remove="Fonts\Coffee Normal.otf" />
+    <None Remove="Fonts\Coffee Normal.ttf" />
+    <None Remove="Fonts\Pixeloid.ttf" />
+    <None Remove="gambaicon.png" />
+    <None Remove="HamburgerMenuButtonBlue.png" />
+    <None Remove="HomeButtonBlue.png" />
+    <None Remove="images\ClickButtonResized.gif" />
+    <None Remove="KreditBlue.png" />
+    <None Remove="KreditBluePerClick.png" />
+    <None Remove="KreditBluePerSec.png" />
+    <None Remove="MineButtonDisabled.png" />
+    <None Remove="MineButtonDisabledReal.png" />
+    <None Remove="MinesButtonBlue.png" />
+    <None Remove="navPanel-export.png" />
+    <None Remove="navPanel.png" />
+    <None Remove="QuotaButton.png" />
+    <None Remove="SpinButtonBlue.png" />
+    <None Remove="SpinButtonsColor.png" />
+    <None Remove="SpinButtonsWays.png" />
+    <None Remove="testBackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="images\ClickButtonResized.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="AutoButtonUpgradeBlue.png" />
+    <Resource Include="BlueButtonTest.png" />
+    <Resource Include="ButtonBlue.png" />
+    <Resource Include="buttonClickSpin.png" />
+    <Resource Include="buttonClickSpinClicked.png" />
+    <Resource Include="buttonTest.png" />
+    <Resource Include="ClickButtonResized.gif" />
+    <Resource Include="ClickButtonResized.png" />
+    <Resource Include="ClickButtonUpgradeBlue.png" />
+    <Resource Include="EndGame.png" />
+    <Resource Include="ExitButton.png" />
+    <Resource Include="Fonts\Best.ttf" />
+    <Resource Include="Fonts\Coffee Normal.otf" />
+    <Resource Include="Fonts\Coffee Normal.ttf" />
+    <Resource Include="gambaicon.png" />
+    <Resource Include="HamburgerMenuButtonBlue.png" />
+    <Resource Include="HomeButtonBlue.png" />
+    <Resource Include="KreditBlue.png" />
+    <Resource Include="KreditBluePerClick.png" />
+    <Resource Include="KreditBluePerSec.png" />
+    <Resource Include="MineButtonDisabled.png" />
+    <Resource Include="MineButtonDisabledReal.png" />
+    <Resource Include="MinesButtonBlue.png" />
+    <Resource Include="navPanel-export.png" />
+    <Resource Include="navPanel.png" />
+    <Resource Include="QuotaButton.png" />
+    <Resource Include="SpinButtonBlue.png" />
+    <Resource Include="SpinButtonsColor.png" />
+    <Resource Include="SpinButtonsWays.png" />
+    <Resource Include="testBackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Pixeloid.ttf" />
+  </ItemGroup>
+
+</Project>
