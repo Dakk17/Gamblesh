@@ -34,3 +34,7 @@ Hra kombinuje klikací tycoon s hazardem. Cíl je vydělat co nejvíce peněz, a
 
 ## Ukládání
 Hra se **ukládá pouze při ukončení** (křížkem nebo tlačítkem Exit).
+
+**Klonujte repozitář**
+   ```bash
+   git clone https://github.com/Dakk17/Gamblesh.git
